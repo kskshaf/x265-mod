@@ -1628,6 +1628,8 @@ typedef struct x265_param
 	 * */
 	int       pictureStructure;	
 
+    bool bStylish;
+
     struct
     {
         /* Explicit mode of rate-control, necessary for API users. It must
