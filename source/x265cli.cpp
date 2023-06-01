@@ -448,7 +448,6 @@ namespace X265_NS {
         double fps = elapsed > 0 ? frameNum * 1000000. / elapsed : 0;
         float bitrate = 0.008f * totalbytes * (param->fpsNum / param->fpsDenom) / ((float)frameNum);
 
-
         int eta, eta_hh = 0, eta_mm = 0, eta_ss = 0, fps_prec, bitrate_prec, file_prec, estsz_prec = 0;
         double percentage = 0., estsz = 0., file_num, estsz_num = 0.;
         const char *file_unit, *estsz_unit = "";
