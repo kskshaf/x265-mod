@@ -30,6 +30,8 @@ option(FPROFILE_USE "Compile executable using generated usage data" OFF)
 option(NATIVE_BUILD "Target the build CPU" OFF)
 option(STATIC_LINK_CRT "Statically link C runtime for release builds" OFF)
 option(USE_MIMALLOC "Use mimalloc as allocator" OFF)
+option(USE_LTO "Enable link time optimization" OFF)
+
 mark_as_advanced(FPROFILE_USE FPROFILE_GENERATE NATIVE_BUILD)
 
 if(NATIVE_BUILD)
@@ -542,6 +544,11 @@ if(USE_MIMALLOC)
     add_definitions(-DUSE_MIMALLOC)
     list(APPEND PLATFORM_LIBS "-L${MIMALLOC_LIBRARY_DIR}" -lmimalloc-static)
     include_directories(${MIMALLOC_INCLUDE_DIR})
+endif()
+
+cmake_policy(SET CMP0069 NEW)
+if(USE_LTO)
+    set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
 endif()
 
 add_subdirectory(encoder)
