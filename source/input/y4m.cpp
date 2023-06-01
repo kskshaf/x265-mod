@@ -173,7 +173,6 @@ bool Y4MInput::parseHeader()
                 break;
             case 'H':
                 height = 0;
-                while ((c = fgetc(ifs)) != EOF)
                 c = readNumber(height);
                 break;
 
