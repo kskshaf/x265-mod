@@ -128,6 +128,7 @@ void x265_param_default(x265_param* param)
     param->rc.lambdaFileName = NULL;
     param->bLogCuStats = 0;
     param->decodedPictureHashSEI = 0;
+    param->bStylish = 0;
 
     /* Quality Measurement Metrics */
     param->bEnablePsnr = 0;
@@ -1321,6 +1322,7 @@ int x265_param_parse(x265_param* p, const char* name, const char* value)
     if (bExtraParams)
     {
         if (0) ;
+        OPT("stylish") p->bStylish = atobool(value);
         OPT("csv") p->csvfn = strdup(value);
         OPT("csv-log-level") p->csvLogLevel = atoi(value);
         OPT("qpmin") p->rc.qpMin = atoi(value);
