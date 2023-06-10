@@ -29,6 +29,7 @@ set(X265_VERSION "unknown")
 set(X265_LATEST_TAG "0.0")
 set(X265_TAG_DISTANCE "0")
 set(MOD_BUILD Yuuki)
+set(X265_ORIGNAL_TAG_DISTANCE "102")
 
 #Find version control software to be used for live and extracted repositories from compressed tarballs
 if(CMAKE_VERSION VERSION_LESS "2.8.10")
@@ -173,7 +174,10 @@ endif()
 if(X265_TAG_DISTANCE STREQUAL "0")
     set(X265_VERSION "${X265_LATEST_TAG}")
 elseif(X265_TAG_DISTANCE STRGREATER "0")
-    set(X265_VERSION "${X265_LATEST_TAG}+${X265_TAG_DISTANCE}-${X265_REVISION_ID}")
+    math(EXPR X265_DISTANCE_DIFF "${X265_TAG_DISTANCE} - ${X265_ORIGNAL_TAG_DISTANCE}")
+    #set(X265_VERSION "${X265_LATEST_TAG}+${X265_TAG_DISTANCE}-${X265_REVISION_ID}")
+    #X265_ORIGNAL_TAG_DISTANCE
+    set(X265_VERSION "${X265_LATEST_TAG}+${X265_ORIGNAL_TAG_DISTANCE}-${X265_REVISION_ID}+${X265_DISTANCE_DIFF}")
 endif()
 
 #will always be printed in its entirety based on version file configuration to avail revision monitoring by repo owners
