@@ -29,7 +29,7 @@ set(X265_VERSION "unknown")
 set(X265_LATEST_TAG "0.0")
 set(X265_TAG_DISTANCE "0")
 set(MOD_BUILD Yuuki)
-set(X265_ORIGNAL_TAG_DISTANCE "102")
+set(X265_ORIGNAL_TAG_DISTANCE "103")
 
 #Find version control software to be used for live and extracted repositories from compressed tarballs
 if(CMAKE_VERSION VERSION_LESS "2.8.10")
